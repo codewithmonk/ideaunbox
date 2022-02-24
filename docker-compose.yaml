@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: idea-unbox
+    image: python:3.9-slim-bullseye
+    env_file:
+        - django.env
+    depends_on:
+        - db
+  db:
+    container_name: "ideaunbox_database"
+    image: postgres:11-alpine
+    env-file:
+        - postgres.env
+    volumes:
+        - postgres_data:/var/lib/postgresql/data/
+    ports:
+        - 5432:5432
+volumes:
+    postgres_data:

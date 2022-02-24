@@ -1,0 +1,6 @@
+postgres_data/
+.vscode/
+.devcontainer
+*.env
+__pycache__/
+*.sqlite3
