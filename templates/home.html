@@ -5,7 +5,7 @@
     
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <a class="navbar-brand" href="/">
-    <img src="https://idea-unbox1.s3.ap-south-1.amazonaws.com/ideabox1-01.png" height="200" width="200" alt="logo">
+    <img src="https://idea-unbox1.s3.ap-south-1.amazonaws.com/ideabox1-01.png" height="150" width="150" alt="logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -17,32 +17,54 @@
         <a class="nav-link" href="/apparels/">Apparels<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item {%ifequal request.path '/awards/' %} active {% endifequal %}">
-        <a class="nav-link" href="/awards/">Awards & Recognition</a>
+        <a class="nav-link" href="/awards/">Awards</a>
       </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item {%ifequal request.path '/bags/' %} active {% endifequal %}">
+        <a class="nav-link" href="/bags/">Bags & Luggage</a>
       </li>
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li class="nav-item {%ifequal request.path '/electronics/' %} active {% endifequal %}">
+        <a class="nav-link" href="/electronics/">Electronics</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <li class="nav-item {%ifequal request.path '/stationary/' %} active {% endifequal %}">
+        <a class="nav-link" href="/stationary/">Office & Stationary</a>
+      </li>
+      <li class="nav-item {%ifequal request.path '/premium-gifts/' %} active {% endifequal %}">
+        <a class="nav-link" href="/premium-gifts/">Premium Gifts</a>
+      </li>
+      <li class="nav-item {%ifequal request.path '/promotional-gifts/' %} active {% endifequal %}">
+        <a class="nav-link" href="/promotional-figts/">Promotional Gifts</a>
+      </li>
+      <li class="nav-item {%ifequal request.path '/leatherites/' %} active {% endifequal %}">
+        <a class="nav-link" href="/leatherites/">Leatherites</a>
+      </li>
+      <li class="nav-item {%ifequal request.path '/homeware/' %} active {% endifequal %}">
+        <a class="nav-link" href="/homeware/">Homeware</a>
+      </li>
+      <li class="nav-item {%ifequal request.path '/drinkware/' %} active {% endifequal %}">
+        <a class="nav-link" href="/drinkware/">Drinkware</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn my-2 my-sm-0 btn-dark" type="submit">Search</button>
+      <button class="btn my-2 my-sm-0 btn-dark" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
     </form>
+    {% if request.user.is_authenticated %}
+      <button class="btn btn-outline-dark ml-5">My Profile</button>
+    {% else %}
+      <button class="btn btn-outline-dark ml-5">Sign in</button>
+    {% endif %}
+    <div class="ml-2">
+      <button type="button" class="btn bg-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg>
+        <span class="p-2">{{0}}</span>
+      </button>
+    </div>
   </div>
 </nav>
 
