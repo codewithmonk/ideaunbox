@@ -80,3 +80,20 @@ def get_top_apparels():
             ],
 
         ]
+
+
+def get_catalogue_items(categoy_name, filters):
+    item = {
+            "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+            "name": "Formal Light Beige",
+            "price_point": "299",
+        }
+    return [
+        item for i in range(60)
+    ]
+
+def get_filters(category_name):
+    return {}
+
+def paginate_data(request, data):
+    pass
