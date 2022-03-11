@@ -1,6 +1,7 @@
 <!--templates/_base.html-->
 <!DOCTYPE html>
 <html lang="en">
+        
     <head>
         <!-- <meta charset="utf-8"> -->
         <!--For responsive-->
@@ -12,8 +13,23 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        {% block indiv_head_content %}
+        {% endblock indiv_head_content %}
+        <script >
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= "700") {
+                    window.location.href = "https://www.google.com"; 
+                }
+            });
+            function redirect() {
+                if (screen.width <= 700) {
+                    window.location = "https://www.google.com/";
+                }
+            }
+        </script>
     </head>
-    <body style="font-family: 'Dosis', sans-serif !important">
+    <body style="font-family: 'Dosis', sans-serif !important" onload="redirect()">
     <!--Block for navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-info">
             <!--brand logo and name goes here-->
@@ -84,10 +100,67 @@
             </div>
         </nav>
         
+        
         {% block content %}
         {% endblock content %}
+
+        {% block footer %}
+        <!-- Footer -->
+            <footer class="page-footer m-5" style="background: #4682B4">
+            <!-- Footer Links -->
+                <div class="container text-center text-md-center" >
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-3 mx-auto">
+                            <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">About us</a>
+                            </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
+                        <div class="col-md-3 mx-auto">
+                            <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Contact Us</a>
+                            </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
+                        <div class="col-md-3 mx-auto">
+                            <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Careers</a>
+                            </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
+                        <div class="col-md-3 mx-auto">
+                            <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Recommendations</a>
+                            </li>
+                            </ul>
+                        </div>
+                    <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+                <!-- Footer Links -->
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© 2022 Copyright:
+                    <a href="http://idea-unbox.com/"> Idea Unbox</a>
+                </div>
+            <!-- Copyright -->
+
+            </footer>
+        {% endblock footer %}
+
+        {% comment %} custom js goes here {% endcomment %}
         {% block customjs %}
         {% endblock customjs %}
+        {% comment %} js goes here {% endcomment %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
