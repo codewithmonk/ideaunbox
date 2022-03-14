@@ -2,9 +2,9 @@ def get_top_apparels():
     return [
             [
                 {
-                    "url": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg",
+                    "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
                     "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                    "heading": "Card title",
+                    "heading": "Formal Shirt Biege",
                     "id": 1
                 },
                 {
@@ -87,6 +87,8 @@ def get_catalogue_items(categoy_name, filters):
             "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
             "name": "Formal Light Beige",
             "price_point": "299",
+            "id": 1,
+            "category": ""
         }
     return [
         item for i in range(60)

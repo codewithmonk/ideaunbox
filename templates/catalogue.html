@@ -1,10 +1,55 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<h1>Catlogue view</h1>
-{% for item in items %}
-    <div>
-        {{item.name}}
+<div class="products p-5">
+    <div class="tab-content" id="myTabContent">
+        <div class="row g-3">
+            {% for product in items%}
+                <div class="col-md-3">
+                    <div class="card thumb-nail"> <img src="{{ product.url }}"  class="rounded img-thumbnail">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between"> <span class="font-weight-bold"><h5>{{ product.name }}</h5></span> <span class="font-weight-bold">Starting from <h4>₹ {{ product.price_point|floatformat:2 }}</h4></span> </div>
+    <!--                        <div class="d-flex align-items-center flex-row"> <img src="https://i.imgur.com/e9VnSng.png" width="20"> <span class="guarantee">2 Years Guarantee</span> </div>-->
+                        </div>
+                        <hr>
+                        <div class="card-body">
+                            <div class="text-right buttons">
+                                <a href="#"><button class="btn btn-outline-dark">View</button></a>
+    <!--                            <button data-product={{ product.id }} data-action="add" class="btn btn-outline-secondary update-cart">Add to Cart</button>-->
+
+                                <button class="btn btn-dark">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="pt-5"></span>
+                </div>
+                
+            {% endfor %}
+        </div>
     </div>
-{% endfor %}
+</div>
+<nav class="paginator-block">
+    {% if items.has_other_pages %}
+        <ul class="pagination justify-content-center">
+            {% if items.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ items.previous_page_number }}">Previous</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link">Previous</a></li>
+            {% endif %}
+            {% for i in items.paginator.page_range %}
+                {% if items.number == i %}
+                    <li class="page-item active"><a class="page-link"> {{ i }}</a> </li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if items.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ items.next_page_number }}">Next</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link">Next</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</nav>
+
 {% endblock content %}
