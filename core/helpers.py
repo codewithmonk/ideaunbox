@@ -88,7 +88,8 @@ def get_catalogue_items(categoy_name, filters):
             "name": "Formal Light Beige",
             "price_point": "299",
             "id": 1,
-            "category": ""
+            "category": "",
+            "slug": "EGF-BGE"
         }
     return [
         item for i in range(60)
@@ -99,3 +100,26 @@ def get_filters(category_name):
 
 def paginate_data(request, data):
     pass
+
+def get_product_detail(sku):
+    return {
+        "name": "Formal Shirt Beige (EGF-BGE)",
+        "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+        "offers": "10% off on all orders above 100 units\n15% off on all orders above 1000 units",
+        "specification": {
+                "fit": "regular fit",
+                "sleeve": "full sleve",
+                "color": "beige",
+                "type": "formals"
+            },
+        "highlights": "100% CottonShirts\nRegular and Slim Fit Formal Shirts\nHands-Free washing\nRich Cotton Shirts\nSlim Fir Shirts Online",
+        "options": {
+            "s": 299,
+            "m": 399,
+            "l": 499,
+            "xl": 599,
+            "xxl": 699
+        },
+        "lowest": 299
+
+    }
