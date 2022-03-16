@@ -1,0 +1,46 @@
+{% extends '_base.html' %}
+{% block content %}
+    {% comment %} dflex row {% endcomment %}
+    <div class="d-flex flex-row justify-content-center mt-5">
+        <div class="column mr-5"><img src="{{item.url}}" class="img-thumbnail"></img></div>
+        {% comment %} Column for product name, price, description etc {% endcomment %}
+        <div class="column ml-5">
+            {% comment %} Product name {% endcomment %}
+            <div class="row justify-content-center"><h5>{{item.name}}</h5></div>
+            {% comment %} product offers {% endcomment %}
+            <div class="rounded container-sm px-5" style="background: #F5F5F5 !important ">
+                <div class="column my-3">
+                    <div class="row pt-1 content-heading"><b>Available Offers</b></div>
+                    <div class="row">{{ item.offers|linebreaks }}</div>
+                </div>
+            </div>
+            {% comment %} end product offers {% endcomment %}
+            <span class="pt-2">Starts from <h2>₹ {{ item.lowest }}</h2></span> 
+            {% comment %} go to cart and add to cart buttons {% endcomment %}
+            <div class="span2 mt-5"><button class="btn btn-outline-secondary btn-block">Go to Cart</button><button class="btn btn-warning btn-block">Add to cart</button></div>
+            {% comment %} highlights and specification{% endcomment %}
+            <div class="column justify-content-center mt-5">
+                <hr>
+                {% comment %} highlights {% endcomment %}
+                <div class="row content-heading mt-4">Highlights</div>
+                <div class="row justify-content-start mt-3">{{ item.highlights|linebreaks }}</div>
+                {% comment %} end highlights {% endcomment %}
+                {% comment %} specifications {% endcomment %}
+                <div class="row mt-3 content-heading">Specifications</div>
+                    <table class="table mt-3">
+                        {% for key, item in item.specification.items %}
+                            <tr>
+                                <td>{{key}}</td>
+                                <td>{{item}}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                {% comment %} end specifications {% endcomment %}
+            </div>
+            {% comment %} end highlights and specifications {% endcomment %}
+        </div>
+        {% comment %} end second column {% endcomment %}
+    </div>
+    {% comment %} end dflex row {% endcomment %}
+{% endblock content%}
