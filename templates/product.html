@@ -2,7 +2,7 @@
 {% block content %}
     {% comment %} dflex row {% endcomment %}
     <div class="d-flex flex-row justify-content-center mt-5">
-        <div class="column mr-5"><img src="{{item.url}}" class="img-thumbnail"></img></div>
+        <div class="column mr-5"><img src="{{item.url}}" class="img-fluid"></img></div>
         {% comment %} Column for product name, price, description etc {% endcomment %}
         <div class="column ml-5">
             {% comment %} Product name {% endcomment %}
@@ -17,7 +17,7 @@
             {% comment %} end product offers {% endcomment %}
             <span class="pt-2">Starts from <h2>₹ {{ item.lowest }}</h2></span> 
             {% comment %} go to cart and add to cart buttons {% endcomment %}
-            <div class="span2 mt-5"><button class="btn btn-outline-secondary btn-block">Go to Cart</button><button class="btn btn-warning btn-block">Add to cart</button></div>
+            <div class="span2 mt-5"><button class="btn btn-outline-secondary btn-block">View Cart</button><button class="btn btn-warning btn-block" data-toggle="modal" data-target="#itemOptionModal">Add to cart</button></div>
             {% comment %} highlights and specification{% endcomment %}
             <div class="column justify-content-center mt-5">
                 <hr>
@@ -27,7 +27,7 @@
                 {% comment %} end highlights {% endcomment %}
                 {% comment %} specifications {% endcomment %}
                 <div class="row mt-3 content-heading">Specifications</div>
-                    <table class="table mt-3">
+                    <table class="table table-hover mt-3">
                         {% for key, item in item.specification.items %}
                             <tr>
                                 <td>{{key}}</td>
@@ -42,5 +42,44 @@
         </div>
         {% comment %} end second column {% endcomment %}
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="itemOptionModal" tabindex="-1" role="dialog" aria-labelledby="itemOptionModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Choose item options to add</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="column">
+            <table class="table table-borderless">
+                <thead class="thead-dark">
+                    <tr> 
+                        <th>Option</th>
+                        <th>Price</th>
+                        <th>Add to Cart/Remove from Cart</th>
+                    </tr>
+                </thead>
+                {% for key, value in item.options.items %}
+                <tr class="noborder">
+                    <td>{{key|upper}}</td>
+                    <td>₹ {{value}}</td>
+                    <td><button class="btn btn-outline-warning btn-block">Add to cart</button></td>
+                </tr>
+                
+                {% endfor %}
+            </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning">View Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
     {% comment %} end dflex row {% endcomment %}
 {% endblock content%}
