@@ -120,6 +120,57 @@ def get_product_detail(sku):
             "xl": 599,
             "xxl": 699
         },
-        "lowest": 299
+        "lowest": 299,
+        "sku": "EGF-BGE"
 
+    }
+
+def get_cart_items():
+    return {
+        "cart_items": [
+            {
+                "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+                "sku": "EGF-BGE",
+                "option": "s",
+                "cost": "299",
+                "quantity": "1",
+                "name": "Forma Shirt Beige"
+            },
+            {
+                "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+                "sku": "EGF-BGE",
+                "option": "ms",
+                "cost": "399",
+                "quantity": "1",
+                "name": "Forma Shirt Beige"
+            },
+            {
+                "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+                "sku": "EGF-BGE",
+                "option": "l",
+                "cost": "499",
+                "quantity": "1",
+                "name": "Forma Shirt Beige"
+            },
+            {
+                "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+                "sku": "EGF-BGE",
+                "option": "xl",
+                "cost": "599",
+                "quantity": "1",
+                "name": "Forma Shirt Beige"
+            },
+            {
+                "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
+                "sku": "EGF-BGE",
+                "option": "xxl",
+                "cost": "799",
+                "quantity": "1",
+                "name": "Forma Shirt Beige"
+            },
+        ],
+        "item_count": 5,
+        "price": 2595.0,
+        "discount": 0.0,
+        "total": 2595.0
     }

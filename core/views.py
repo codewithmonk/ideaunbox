@@ -1,7 +1,7 @@
 from pydoc import pager
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from core.helpers import get_top_apparels, get_catalogue_items, get_filters, get_product_detail
+from core.helpers import get_top_apparels, get_catalogue_items, get_filters, get_product_detail, get_cart_items
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
@@ -36,6 +36,12 @@ def get_individual_item(request, slug):
     item = get_product_detail(slug)
     context = {"item": item}
     return render(request, 'product.html', context)
+
+def get_cart(request):
+    items = get_cart_items()
+    context = {"items": items}
+    return render(request, 'cart.html', context)
+
 
 
 class ApparelsView(TemplateView):

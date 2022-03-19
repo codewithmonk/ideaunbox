@@ -1,0 +1,67 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="container-fluid " style="background: #F5F5F5 !important;">
+        <div class="row">
+            <div class="col-lg-7 one">
+                {% for item in items.cart_items %}
+                <img src="{{item.url}}" class="img-fluid img-thumbnail w-25">
+                {% endfor %}
+                {% for item in items.cart_items %}
+                <img src="{{item.url}}" class="img-fluid img-thumbnail w-25">
+                {% endfor %}
+                {% for item in items.cart_items %}
+                <img src="{{item.url}}" class="img-fluid img-thumbnail w-25">
+                {% endfor %}
+                {% for item in items.cart_items %}
+                <img src="{{item.url}}" class="img-fluid img-thumbnail w-25">
+                {% endfor %}
+            </div>
+            <div class="col-lg-4 col-2 sticky-top two">
+                <h3 class="card-title">Cart items and price details</h3>
+                <hr>
+                <div class="column">
+                    <div class="card row rounded m-1" style="height: 25rem;">
+                        <div class="p-3">
+                            <span class="float-left"><h4>Price ({{ items.item_count }} items)</h4></span> 
+                            <span class="float-right"><h5>₹ {{ items.price }}</h5></span>
+                        </div>
+                        <div class="p-3">
+                            <span class="float-left">Discount</span>
+                            <span class="float-right">₹ {{ items.discount }}</span>
+                        </div>
+                        <hr>
+                        <div class="p-3">
+                            <span class="float-left">Total</span>
+                            <span class="float-right">₹ {{ items.total }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} <div class="column w-50">
+        {% for item in items %}
+        <div class="d-flex flex-row justify-content-around row m-5">
+            <img src="{{item.url}}" class="img-fluid img-thumbnail w-25">
+            <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
+            <div class="input-group plus-minus-input">
+                <div class="input-group-button">
+                    <button type="button" class="button hollow circle" data-quantity="minus" data-field="quantity">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <input class="input-group-field" type="number" name="quantity" value="0">
+                <div class="input-group-button">
+                    <button type="button" class="button hollow circle" data-quantity="plus" data-field="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+                     
+        </div>
+    {% endfor %}
+    </div> {% endcomment %}
+{% endblock %}

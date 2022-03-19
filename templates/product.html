@@ -17,7 +17,7 @@
             {% comment %} end product offers {% endcomment %}
             <span class="pt-2">Starts from <h2>₹ {{ item.lowest }}</h2></span> 
             {% comment %} go to cart and add to cart buttons {% endcomment %}
-            <div class="span2 mt-5"><button class="btn btn-outline-secondary btn-block">View Cart</button><button class="btn btn-warning btn-block" data-toggle="modal" data-target="#itemOptionModal">Add to cart</button></div>
+            <div class="span2 mt-5"><a href ="{% url 'cart' %}" class="btn btn-outline-secondary btn-block">View Cart</a><button class="btn btn-warning btn-block" data-toggle="modal" data-target="#itemOptionModal">Add to cart</button></div>
             {% comment %} highlights and specification{% endcomment %}
             <div class="column justify-content-center mt-5">
                 <hr>
