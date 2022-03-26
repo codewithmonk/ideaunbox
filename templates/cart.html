@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-7 one">
                 {% for item in items.cart_items %}
-                <div class="card row ml-3 mt-3" style="width: 80%">
+                <div class="card row ml-3 mt-3" style="width: 80%" id="{{item.sku}}-{{item.option}}-div">
                     <div class="column mb-5">
                         <div class="row m-3"><img src="{{item.url}}" class="img-fluid img-thumbnail w-25 "></div>
                         <div>
@@ -13,9 +13,10 @@
                             {{ item.price }} x <span id="{{item.sku}}-{{item.option}}-quantity-inner"> {{1}} </span>
                         </div>
                         <div class="justify-content-center row mb-5">
-                            <button class="fa fa-minus p-1" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'decrement')"></button>
+                            <button class="btn fa fa-minus p-1 mx-2" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'decrement')"></button>
                             <input type="number justify-content-center w-25 rounded" name="quantity" min="1" value="1" id="{{item.sku}}-{{item.option}}-quantity" onchange="changeQuantity('{{item.sku}}', '{{item.option}}', 'change')">
-                            <button class="fa fa-plus p-1" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'increment')"></button>
+                            <button class="btn fa fa-plus p-1 mx-2" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'increment')"></button>
+                            <button class="btn fa fa-trash ml-5" style="color: #DC143C" onclick="deleteItem('{{item.sku}}', '{{item.option}}')"></button>
                         </span></div>
                     </div>
                 </div>
@@ -118,6 +119,18 @@
     function recalculate(id){
         var quantity = parseInt(document.getElementById(id).value);
         console.log("recalculating");
+    }
+
+    function deleteItem(sku, option){
+
+        console.log("deleting");
+        const id = sku+"-"+option+"-div";
+        if (window.confirm("Please confirm delete")){
+            document.getElementById(id).innerHTML = "";
+        } else {
+            console.log("delete cancelled")
+        }
+        
     }
 </script>
 {% endblock customjs %}
