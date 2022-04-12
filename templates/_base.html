@@ -44,11 +44,14 @@
         .noborder{
             border:none;
         }
+        .nav-bg{
+            background-color:#00264D;
+        }
         </style>
     </head>
     <body style="font-family: 'Dosis', sans-serif !important;" onload="redirect()">
     <!--Block for navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <nav class="navbar navbar-expand-lg navbar-dark nav-bg">
             <!--brand logo and name goes here-->
             <a class="navbar-brand" href="/">
                 <img src="https://idea-unbox1.s3.ap-south-1.amazonaws.com/ideabox1-01.png" height="150" width="150" alt="logo">
@@ -101,9 +104,9 @@
                 </form>
                 <!--Show sign in button if not signed in else show my profile button-->
                 {% if request.user.is_authenticated %}
-                <button class="btn btn-outline-dark ml-5">My Profile</button>
+                <button class="btn btn-outline-light ml-5">My Profile</button>
                 {% else %}
-                <button class="btn btn-outline-dark ml-5">Sign in</button>
+                <button class="btn btn-outline-light ml-5">Sign in</button>
                 {% endif %}
                 <div class="ml-2">
                 <!--cart button-->
