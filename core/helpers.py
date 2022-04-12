@@ -139,7 +139,7 @@ def get_cart_items():
             {
                 "url": "https://idea-unbox1.s3.ap-south-1.amazonaws.com/sku_images/EGF-LBE.jpg",
                 "sku": "EGF-BGE",
-                "option": "ms",
+                "option": "m",
                 "cost": "399",
                 "quantity": "1",
                 "name": "Forma Shirt Beige"

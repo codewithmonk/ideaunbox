@@ -1,13 +1,40 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <div class="container-fluid " style="background: #F5F5F5 !important;">
+    <div class="container">
+        {% for item in items.cart_items %}
+        <div class="card p-2 m-3", style="width: 60%" id="{{item.sku}}-{{item.option}}-div">
+            <div class="mx-5"><img src="{{item.url}}" class="h-width-10 mx-3"></div>
+            <div class="d-flex justify-content-around">
+                <div class="m-2 justify-content-center">
+                    {% comment %} <div><img src="{{item.url}}" class="h-width-10 mx-3"></div> {% endcomment %}
+                    <div>{{ item.name }}</div>
+                </div>
+                <div class="m-2">
+                    <div>Option: {{ item.option|upper }}</div>
+                    <div>Price: ₹{{ item.cost }}</div>
+                </div>
+                <div class="m-2">
+                    <div class="justify-content-center row mb-5">
+                        <button class="btn fa fa-minus p-1 mx-2" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'decrement')"></button>
+                        <input type="number justify-content-center w-25 rounded" name="quantity" min="1" value="1" id="{{item.sku}}-{{item.option}}-quantity" onchange="changeQuantity('{{item.sku}}', '{{item.option}}', 'change')">
+                        <button class="btn fa fa-plus p-1 mx-2" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'increment')"></button>
+                        <button class="btn fa fa-trash ml-3" style="color: #DC143C" onclick="deleteItem('{{item.sku}}', '{{item.option}}')"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+    
+    {% comment %} <div class="container-fluid " style="background: #F5F5F5 !important;">
         <div class="row">
             <div class="col-lg-7 one">
                 {% for item in items.cart_items %}
                 <div class="card row ml-3 mt-3" style="width: 80%" id="{{item.sku}}-{{item.option}}-div">
                     <div class="column mb-5">
-                        <div class="row m-3"><img src="{{item.url}}" class="img-fluid img-thumbnail w-25 "></div>
+                        <div class="row m-3"><img src="{{item.url}}" class="img-fluid img-thumbnail h-width-10 "></div>
                         <div>
                             {{ item.sku }}
                             {{ item.price }} x <span id="{{item.sku}}-{{item.option}}-quantity-inner"> {{1}} </span>
@@ -17,7 +44,7 @@
                             <input type="number justify-content-center w-25 rounded" name="quantity" min="1" value="1" id="{{item.sku}}-{{item.option}}-quantity" onchange="changeQuantity('{{item.sku}}', '{{item.option}}', 'change')">
                             <button class="btn fa fa-plus p-1 mx-2" onclick="changeQuantity('{{item.sku}}', '{{item.option}}', 'increment')"></button>
                             <button class="btn fa fa-trash ml-5" style="color: #DC143C" onclick="deleteItem('{{item.sku}}', '{{item.option}}')"></button>
-                        </span></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -45,30 +72,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    {% comment %} <div class="column w-50">
-        {% for item in items %}
-        <div class="d-flex flex-row justify-content-around row m-5">
-            <img src="{{item.url}}" class="img-fluid img-thumbnail w-25">
-            <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-            <div class="input-group plus-minus-input">
-                <div class="input-group-button">
-                    <button type="button" class="button hollow circle" data-quantity="minus" data-field="quantity">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <input class="input-group-field" type="number" name="quantity" value="0">
-                <div class="input-group-button">
-                    <button type="button" class="button hollow circle" data-quantity="plus" data-field="quantity">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-
-                     
-        </div>
-    {% endfor %}
     </div> {% endcomment %}
 {% endblock content %}
 {% block customjs %}
